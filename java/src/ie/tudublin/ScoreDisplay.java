@@ -41,20 +41,30 @@ public class ScoreDisplay extends PApplet
 	public void printScores()
 	{
 		int length = notes.size();
-		String Type;
+		String Type = "Quaver";
 		for (i = 0; i < length; i++)
 		{
-			String t = notes.get(i);
-			if (t.contains("1"))
+			
+			/*if (i.Note.duration == 1)
 			{
 				Type = "Quaver";
 			}
 			else
 			{
 				Type = "Crotchet";
-			}
+			}*/
 			println(notes.get(i) + " " + Type);
 		}
+	}
+
+	public void staves()
+	{
+		strokeWeight(5);
+		line(100, 200, 900, 200);
+		line(100, 225, 900, 225);
+		line(100, 250, 900, 250);
+		line(100, 275, 900, 275);
+		line(100, 300, 900, 300);
 	}
 
 	public ArrayList<Note> getNotes() {
@@ -86,7 +96,7 @@ public class ScoreDisplay extends PApplet
 	public void draw()
 	{
 		background(255);
-		
+		staves();
 	}
 
 	void drawNotes()

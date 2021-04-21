@@ -14,28 +14,37 @@ public class ScoreDisplay extends PApplet
 
 	public void loadScore()
 	{
-		
+		int j = 0;
 
 		for (i = 0; i < score.length(); i++)
 		{
-			if (i++ == 2)
+			if (i< score.length()-1)
 			{
-				Note note = new Note(score.charAt(i), 2);
-				notes.add(note);
+				j = i;
 			}
-			else
+			if (score.charAt(i) != '2')
 			{
-				Note note = new Note(score.charAt(i), 1);
-				notes.add(note);
+				if (score.charAt(j+1) == '2')
+				{
+					Note note = new Note(score.charAt(i), 2);
+					notes.add(note);
+				}
+				else
+				{
+					Note note = new Note(score.charAt(i), 1);
+					notes.add(note);
+				}
 			}
 		}
 	}
 
 	public void printScores()
 	{
-		for (i = 0; i < score.length(); i++)
+		int length = notes.size();
+		String Type = "me";
+		for (i = 0; i < length; i++)
 		{
-			println(notes.get(i));
+			println(notes.get(i) + " " + Type);
 		}
 	}
 
@@ -62,6 +71,7 @@ public class ScoreDisplay extends PApplet
 	public void setup() 
 	{
 		loadScore();
+		printScores();
 	}
 
 	public void draw()

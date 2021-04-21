@@ -18,9 +18,16 @@ public class ScoreDisplay extends PApplet
 
 		for (i = 0; i < score.length(); i++)
 		{
-			Note note = new Note(score.charAt(i), 1);
-			notes.add(note);
-			//if (score.isDigit())
+			if (i++ == 2)
+			{
+				Note note = new Note(score.charAt(i), 2);
+				notes.add(note);
+			}
+			else
+			{
+				Note note = new Note(score.charAt(i), 1);
+				notes.add(note);
+			}
 		}
 	}
 

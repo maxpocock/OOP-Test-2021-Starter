@@ -41,9 +41,18 @@ public class ScoreDisplay extends PApplet
 	public void printScores()
 	{
 		int length = notes.size();
-		String Type = "me";
+		String Type;
 		for (i = 0; i < length; i++)
 		{
+			String t = notes.get(i);
+			if (t.contains("1"))
+			{
+				Type = "Quaver";
+			}
+			else
+			{
+				Type = "Crotchet";
+			}
 			println(notes.get(i) + " " + Type);
 		}
 	}

@@ -10,12 +10,33 @@ public class ScoreDisplay extends PApplet
 	String score = "DEFGABcd";
 	//String score = "D2E2F2G2A2B2c2d2";
 	//String score = "DEF2F2F2EFA2A2B2AFD2E2D2D2D2";
-	ArrayList<String> notes;
-	public ArrayList<String> getNotes() {
+	ArrayList<Note> notes = new ArrayList<Note> ();
+
+	public void loadScore()
+	{
+		
+
+		for (i = 0; i < score.length(); i++)
+		{
+			Note note = new Note(score.charAt(i), 1);
+			notes.add(note);
+			//if (score.isDigit())
+		}
+	}
+
+	public void printScores()
+	{
+		for (i = 0; i < score.length(); i++)
+		{
+			println(notes.get(i));
+		}
+	}
+
+	public ArrayList<Note> getNotes() {
 		return notes;
 	}
 
-	public void setNotes(ArrayList<String> notes) {
+	public void setNotes(ArrayList<Note> notes) {
 		this.notes = notes;
 	}
 
@@ -46,25 +67,5 @@ public class ScoreDisplay extends PApplet
 	{
 	}
 
-	public void loadScore()
-	{
-		String x;
-		char y;
-
-		for (i = 0; i < score.length(); i++)
-		{
-			y = score.charAt(i);
-			x = String.valueOf(y);
-			notes.add(x);
-			//if (score.isDigit())
-		}
-	}
-
-	public void printScores()
-	{
-		for (i = 0; i < score.length(); i++)
-		{
-			println(notes.get(i));
-		}
-	}
+	
 }
